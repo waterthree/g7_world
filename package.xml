@@ -3,8 +3,8 @@
 <package format="3">
   <name>g7_world</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="waterthree@gmail.com">jianmiao</maintainer>
+  <description>Group 7 custom world Project</description>
+  <maintainer email="waterthree@gmail.com">Group 7</maintainer>
   <license>Apache-2.0</license>
 
   <test_depend>ament_copyright</test_depend>

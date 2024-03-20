@@ -13,13 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='jianmiao',
+    maintainer='Group 7',
     maintainer_email='waterthree@gmail.com',
-    description='TODO: Package description',
+    description='Group 7 custom world Project',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+
         ],
     },
 )
