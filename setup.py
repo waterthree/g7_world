@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-
+            'walker = g7_world.CPSC_5207EL-02_A3_G7:main',
         ],
     },
 )
