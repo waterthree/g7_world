@@ -1,0 +1,1 @@
+The real world file is in turtlebot3_gazebo's world folder, this folder is only used for backup purpose.
