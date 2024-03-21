@@ -22,8 +22,8 @@ class TurtlebotController(Node):
         self.timer = self.create_timer(0.1, self.update_state)
 
         self.red_threshold = 140000
-        self.brown_threshold = 200000
-        self.sum_threshold = 200000
+        self.brown_threshold = 240000
+        self.sum_threshold = 220000
 
         self.turning_start_time = None
 
@@ -81,7 +81,7 @@ class TurtlebotController(Node):
         largest_area_brown = max(cv2.contourArea(contour) for contour in contours_brown) if contours_brown else 0
 
         height, width, _ = cv_image.shape
-        
+
         if largest_area_red > self.red_threshold or largest_area_brown > self.brown_threshold or (largest_area_red+largest_area_brown) > self.sum_threshold:
             moments = cv2.moments(largest_area_red)
             if moments["m00"] != 0:
@@ -96,6 +96,15 @@ class TurtlebotController(Node):
                 self.state = "turn_right"
         elif largest_area_red < 50000 and largest_area_brown < 100000 and self.state in ["turn_right", "turn_left"]:
             self.state = "move_forward"
+        elif contours_brown and self.state == "move_forward":
+            largest_contour_brown = max(contours_brown, key=cv2.contourArea)
+            epsilon = 0.02 * cv2.arcLength(largest_contour_brown, True)
+            approx = cv2.approxPolyDP(largest_contour_brown, epsilon, True)
+
+            if len(approx) == 6 and largest_area_brown > 70000:
+                self.state = "turn_right" if self.turn_direction == "right" else "turn_left"
+            else:
+                self.state = "move_forward"
 
         new_width = int(width * 0.5)
         new_height = int(height * 0.5)
