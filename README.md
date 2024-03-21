@@ -2,7 +2,8 @@ the custom pacakge of Group 7 for robotics assignment(3-4)
 
 
 
-Put this project under src folder, and change dir to upper folder, then use colcon to compile the package.
+Put this project under src folder, copy the world file to gazebo's worlds folder or create your own world file.
+then change dir to upper folder, use colcon to compile the package.
 
 /* clean the workspace
    delete folders which been built previously */
