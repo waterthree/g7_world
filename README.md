@@ -1,4 +1,4 @@
-the custom pacakge of Group 7 for robotics assignment(3-4)
+The custom pacakge Project of Group 7 for robotics assignment(3, 4)
 
 
 
